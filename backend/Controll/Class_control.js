@@ -48,7 +48,7 @@ DELETEClassRouter.delete('/:id', async (req, res) => {
 
     await ClassModal.findByIdAndDelete(id)
 
-    res.send({ status: (200), message: 'successfully deletd' })
+    res.send({ status: (200), message: 'successfully deleted' })
   } catch (error) {
     res.status(400).send(error.message)
   }
