@@ -2,33 +2,28 @@
 const App = require('../index')
 const request = require('supertest')
 
-// describe("testing users get , post ,delete,updete",()=>{
-//  it("get testing users waxa raba ina soo baxo 200 StatusCode", async () => {
-//         const resp = await request(App).get("/users");
+// describe("testing Faculty get , post ,delete,updete",()=>{
+//  it("get testing Faculty waxa raba ina soo baxo 200 StatusCode", async () => {
+//         const resp = await request(App).get("/Faculty");
 
 //         expect(resp.statusCode).toBe(200)
 // });
-// it("post testing users waxa raba ina soo baxo 200 StatusCode", async () => {
-//     const response = await request(App).post("/users").send({
-//         name:"Abdirhman",
-//         username:"abdirhman@gmail.com",
-//         Password:"123",
-//         role:"admin"
+// it("post testing Faculty waxa raba ina soo baxo 200 StatusCode", async () => {
+//     const response = await request(App).post("/Faculty").send({
+//         Facultyname:"tessssst",
+//         Creationdate:"2023/11/3"
 //     })
 //     expect(response.statusCode).toBe(200);
 // });
-// it("PUT testing users waxa raba ina soo baxo 200 StatusCode", async () => {
-//     const response =  await request(App).put("/users/6495a25f30dbcc557aa6b772").send({
-//         name:"ali",
-//         Email:"ali@gmail.com",
-//         Password:"123",
-//         userStatus:"active",
-//         role:"block"
+// it("PUT testing Faculty waxa raba ina soo baxo 200 StatusCode", async () => {
+//     const response =  await request(App).put("/Faculty/6587323bff4ebac299ce5cef").send({
+//         Facultyname:"Wax kaly",
+//         Creationdate:"2024/4/3"
 //     })
 //     expect(response.statusCode).toBe(200);
 // });
-// it("delete testing users waxa raba ina soo baxo 200 StatusCode", async () => {
-//     const response =  await request(App).delete("/users/6495a25f30dbcc557aa6b772")
+// it("delete testing Faculty waxa raba ina soo baxo 200 StatusCode", async () => {
+//     const response =  await request(App).delete("/Faculty/6587323bff4ebac299ce5cef")
 //     expect(response.statusCode).toBe(200);
 // });
 // })
