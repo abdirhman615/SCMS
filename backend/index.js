@@ -12,9 +12,9 @@ App.use(cors())
  const StudentRouter = require('./Router/Student_Router')
  const ComplainRouter = require('./Router/Complain_Router')
  const ReplyRouter = require('./Router/Reply_Router')
-// const ServiceRouter = require('./Router/ServiceRouter')
+ const userRouter = require('./Router/User_Router')
 // const contectRouter = require('./Router/contectRouter')
-// const loginRouter = require('./Router/LoginRouter')
+ const loginRouter = require('./Router/LoginRouter')
 
 App.listen(5000, () => {
   console.log('server started')
@@ -30,8 +30,8 @@ App.get('/', (req, res) => {
  App.use('/Student', StudentRouter)
  App.use('/Complain', ComplainRouter)
  App.use('/Reply', ReplyRouter)
-// App.use('/Service', ServiceRouter)
+ App.use('/User', userRouter)
 // App.use('/contect', contectRouter)
-// App.use('/Login', loginRouter)
+ App.use('/Login', loginRouter)
 
 module.exports = App

@@ -28,57 +28,46 @@ const request = require('supertest')
 // });
 // })
 
-// describe("testing guryaha get , post ,delete,updete",()=>{
-//  it("get testing guryaha waxa raba ina soo baxo 200 StatusCode", async () => {
-//         const resp = await request(App).get("/guryah");
+describe("testing Student get , post ,delete,updete",()=>{
+ it("get testing Student waxa raba ina soo baxo 200 StatusCode", async () => {
+        const resp = await request(App).get("/Student");
 
-//         expect(resp.statusCode).toBe(200)
-// });
-// it("Post testing guryah waxa raba ina soo baxo 200 StatusCode", async () => {
-//     const response =  await request(App).post("/guryah").send({
+        expect(resp.statusCode).toBe(200)
+});
+it("Post testing Student waxa raba ina soo baxo 200 StatusCode", async () => {
+    const response =  await request(App).post("/Student").send({
 
-//         typekisa:"dabaq",
-//         area:"bakaro",
-//         address:"Banader",
-//         age:"bakaro",
-//         rent:"350",
-//         deposit:"150",
-//         parking:"active",
-//         imagesPreview:"https://images.pexels.com/photos/1029599/pexels-photo-1029599.jpeg?auto=compress&cs=tinysrgb&w=600",
-//         isAvalibile:"yes",
-//         rooms:"6",
-//         musqulaha:"2",
-//         masterRoom:"1",
-//         faahfaahin:"goob ganacsi",
-//         users_id:"6490a78e19a6ebca05e8fe17"
-//     })
+        
+    Stdname:"Axmed Huseen",
+    phone: "0613777302",
+    Address:"Dayniile",
+    Password:"12345",
+    Gender:"male",
+    Email:"Axmed@gmail.com",
+    department_id:"65853ddc4805719aef317dd5",
+    Class_id:"658542333ee38446d6e3941a"
+    })
 
-//     expect(response.statusCode).toBe(200);
-// });
-// it("PUT testing guryah waxa raba ina soo baxo 200 StatusCode", async () => {
-//     const response =  await request(App).put("/guryah/649146ca3056a569ff3bfb91").send({
-//         typekisa:"dabaq",
-//          area:"bakaro",
-//          address:"Banader",
-//          age:"bakaro",
-//          rent:"350",
-//          deposit:"150",
-//          parking:"active",
-//          imagesPreview:"https://images.pexels.com/photos/1029599/pexels-photo-1029599.jpeg?auto=compress&cs=tinysrgb&w=600",
-//          isAvalibile:"yes",
-//          rooms:"6",
-//          musqulaha:"2",
-//          masterRoom:"1",
-//          faahfaahin:"goob waxbarasho",
-//          users_id:"6490a78e19a6ebca05e8fe17"
-//     })
-//     expect(response.statusCode).toBe(200);
-// });
-// it("delete testing guryah waxa raba ina soo baxo 200 StatusCode", async () => {
-//     const response =  await request(App).delete("/guryah/649146ca3056a569ff3bfb91")
-//     expect(response.statusCode).toBe(200);
-// });
-// })
+    expect(response.statusCode).toBe(200);
+});
+it("PUT testing Student waxa raba ina soo baxo 200 StatusCode", async () => {
+    const response =  await request(App).put("/Student/658548284a079824f219f68f").send({
+        Stdname:"C/rahman Huseen",
+        phone: "0613777302",
+        Address:"Dayniile",
+        Password:"12345",
+        Gender:"male",
+        Email:"C/rahman@gmail.com",
+        department_id:"65853ddc4805719aef317dd5",
+        Class_id:"658542333ee38446d6e3941a"
+    })
+    expect(response.statusCode).toBe(200);
+});
+it("delete testing Student waxa raba ina soo baxo 200 StatusCode", async () => {
+    const response =  await request(App).delete("/Student/658548284a079824f219f68f")
+    expect(response.statusCode).toBe(200);
+});
+})
 
 // describe("testing images get , post ,delete,updete",()=>{
 //  it("get testing images waxa  raba ina soo baxo 200 StatusCode", async () => {

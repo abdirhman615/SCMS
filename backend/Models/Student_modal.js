@@ -1,5 +1,6 @@
 const mongoose = require("mongoose")
-
+const joi = require('joi')
+mongoose.pluralize(null)
 const StudentSchema = new mongoose.Schema({
 Stdname:{
     type:String,
@@ -13,7 +14,7 @@ Address:{
     type:String,
     required:true
 },
-Password:{
+STD_Pass:{
     type:String,
     required:true
 },
@@ -39,5 +40,28 @@ Class_id:{
 
 const StudentModal = mongoose.model("Student",StudentSchema)
 
-module.exports=StudentModal
+const STDRegValidate = (userData) => {
+    const user = joi.object({
+  
+    Stdname: joi.string().required(),
+    STD_Pass: joi.string().required().min(3),
+    phone: joi.string().required(),
+    Address: joi.string().required(),
+    Gender: joi.string().required(),
+    Email: joi.string().required(),
+    department_id: joi.string().required(),
+    Class_id: joi.string().required()
+    })
+    return user.validate(userData)
+  }
+
+  const STDLoginValidate = (userData) => {
+    const user = joi.object({
+        Email: joi.string(),
+        STD_Pass: joi.string().min(3)
+    })
+    return user.validate(userData)
+  }
+
+module.exports={StudentModal,STDLoginValidate ,STDRegValidate};
 
