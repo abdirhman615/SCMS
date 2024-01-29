@@ -27,6 +27,7 @@ Complain_date:{
 Status:{
     type:String,
     enum:["New","Open"],
+    default:"New"
 }
 },{timestamps:true})
 

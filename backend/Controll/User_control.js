@@ -15,20 +15,64 @@ usersRouter.get('/', async (req, res) => {
 })
 
 usersRouter.post('/', async (req, res) => {
+//   try {
+//     const { error } = UserRegValidate(req.body)
+//     if (error) return res.json(error.message)
+
+//     const newuser = new UserModal(req.body)
+//     const salt = await bcrypt.genSalt(10)
+//     newuser.Password = await bcrypt.hash(newuser.Password, salt)
+//     await newuser.save()
+
+//     res.send({ status: (200), message: 'successfully Add' })
+//   } catch (error) {
+//     console.log(error.message)
+//   }
+
   try {
-    const { error } = UserRegValidate(req.body)
-    if (error) return res.json(error.message)
-
-    const newuser = new UserModal(req.body)
-    const salt = await bcrypt.genSalt(10)
-    newuser.Password = await bcrypt.hash(newuser.Password, salt)
-    await newuser.save()
-
-    res.send({ status: (200), message: 'successfully Add' })
+    //validation
+    const { error } = UserRegValidate(req.body);
+    if (error) return res.status(405).send(error.message);
+    //post data
+    const postData = new UserModal(req.body);
+    postData.Password=await bcrypt.hash(postData.Password,10)
+    //if user is already exit
+    const allUsers=await UserModal.find({username:req.body.username})
+    if(allUsers.length>0) return res.status(409).send({status:false,message:'this user allready exit'})
+    //save post data
+    await postData.save();
+    res.status(201).send({
+        status:true,
+        message:'successfuly inserted',
+        data:postData
+    });
   } catch (error) {
-    console.log(error.message)
+    res.status(400).send(error.message);
   }
 })
+
+// const Post = async (req, res) => {
+//     try {
+//       //validation
+//       const { error } = UserRegValidate(req.body);
+//       if (error) return res.status(405).send(error.message);
+//       //post data
+//       const postData = new UserModal(req.body);
+//       postData.Password=await bcrypt.hash(postData.Password,10)
+//       //if user is already exit
+//       const allUsers=await UserModal.find({username:req.body.username})
+//       if(allUsers.length>0) return res.status(409).send({status:false,message:'this user allready exit'})
+//       //save post data
+//       await postData.save();
+//       res.status(201).send({
+//           status:true,
+//           message:'successfuly inserted',
+//           data:postData
+//       });
+//     } catch (error) {
+//       res.status(400).send(error.message);
+//     }
+//   };
 
 usersRouter.put('/:id', async (req, res) => {
   try {

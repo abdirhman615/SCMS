@@ -1,6 +1,17 @@
 const mongoose = require("mongoose")
-
+const createIdGenerator = () => {
+    let counter = 0;
+  
+    return () => {
+      counter += 1;
+      return `ID_${counter}`;
+    };
+  };
 const FacultySchema = new mongoose.Schema({
+    counter:{
+    type:String,
+    required:false
+},
 Facultyname:{
     type:String,
     required:true
