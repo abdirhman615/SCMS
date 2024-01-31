@@ -5,13 +5,25 @@ const { UserModal, UserRegValidate } = require('../Models/Users_modal')
 const bcrypt = require('bcrypt')
 
 usersRouter.get('/', async (req, res) => {
-  try {
-    const Allusers = await UserModal.find()
 
-    res.json({ Allusers })
-  } catch (error) {
-    res.json(error.message)
-  }
+  const Alluser = await UserModal.find().populate([{
+    path:"Faculty_id",
+    model:"Faculty",
+    select:"Facultyname"
+
+}])
+res.json({Alluser})
+  // try {
+  //   const Allusers = await UserModal.find()
+
+  //   res.json({ Allusers })
+  // } catch (error) {
+  //   res.json(error.message)
+  // }
+})
+usersRouter.get('/:id', async (req, res) => {
+  const Userbyid = await UserModal.findById()
+  res.json({ Userbyid })
 })
 
 usersRouter.post('/', async (req, res) => {
