@@ -2,6 +2,11 @@ const mongoose = require('mongoose')
 const joi = require('joi')
 mongoose.pluralize(null)
 const userSchema = new mongoose.Schema({
+  USER_ID: {
+    type: String,
+    required: true,
+    unique: true
+  },
   username: {
     type: String,
     required: true,
@@ -35,6 +40,7 @@ const UserModal = mongoose.models.users || mongoose.model('users', userSchema)
 const UserRegValidate = (userData) => {
   const user = joi.object({
 
+    USER_ID: joi.string().required(),
     username: joi.string().required(),
     Password: joi.string().required().min(3),
     usertype: joi.string().required(),

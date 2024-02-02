@@ -2,6 +2,11 @@ const mongoose = require("mongoose")
 const joi = require('joi')
 mongoose.pluralize(null)
 const StudentSchema = new mongoose.Schema({
+STD_id:{
+    type:String,
+    required:true,
+    unique: true
+},
 Stdname:{
     type:String,
     required:true
@@ -43,6 +48,7 @@ const StudentModal = mongoose.model("Student",StudentSchema)
 const STDRegValidate = (userData) => {
     const user = joi.object({
   
+    STD_id: joi.string().required(),
     Stdname: joi.string().required(),
     STD_Pass: joi.string().required().min(3),
     phone: joi.string().required(),

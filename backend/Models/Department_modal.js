@@ -1,6 +1,11 @@
 const mongoose = require("mongoose")
 
 const departmentSchema = new mongoose.Schema({
+DEP_ID:{
+    type:String,
+    required:true,
+    unique: true
+},
 departmentname:{
     type:String,
     required:true
